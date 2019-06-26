@@ -142,6 +142,10 @@ private extension Dictionary where Key == String, Value == Token.Value {
 			}
 
 			return dictionary.valueFor(keyPath: remainder)
+		case (let .string(string), nil, let .some(remainder)) where remainder.hasPrefix("size"):
+			return .integer(string.count)
+		case (let .array(array), nil, let .some(remainder)) where remainder.hasPrefix("size"):
+			return .integer(array.count)
 		case (let .array(array), nil, let .some(remainder)) where remainder.hasPrefix("first"):
 			let rangeFirst = remainder.range(of: "first\\.?", options: .regularExpression)!
 
