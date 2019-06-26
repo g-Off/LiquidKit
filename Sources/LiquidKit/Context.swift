@@ -74,6 +74,10 @@ open class Context {
 			return .string(string)
 		} else if let boolLiteral = value as? BooleanLiteralType {
 			return .bool(boolLiteral)
+		} else if let arrayLiteral = value as? [Any] {
+			return .array(arrayLiteral.compactMap { parseAny($0) })
+		} else if let dictionaryLiteral = value as? [String: Any] {
+			return .dictionary(dictionaryLiteral.compactMapValues { parseAny($0) })
 		} else if value == nil {
 			return .nil
 		} else {
