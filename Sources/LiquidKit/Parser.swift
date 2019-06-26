@@ -114,9 +114,10 @@ open class Parser {
 
 				// If this tag defines a scope, create it and make it ther current scope.
 				if tag.definesScope {
+					let currentContext = currentScope.context
 					currentScope = currentScope.appendScope(for: tag)
 					currentScope.tagTokenIndex = tokenIndex
-					currentScope.context = (tag as? IterationTag)?.supplementalContext
+					currentScope.context = (tag as? IterationTag)?.supplementalContext ?? currentContext
 					tag.didDefine(scope: currentScope, parser: self)
 				}
 
