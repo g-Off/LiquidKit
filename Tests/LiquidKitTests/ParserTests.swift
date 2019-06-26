@@ -25,7 +25,7 @@ class ParserTests: XCTestCase {
         let tokens = lexer.tokenize()
         let parser = Parser(tokens: tokens, context: Context(dictionary: dic))
         let res = parser.parse()
-        XCTAssertEqual(res, ["aab ", "A", " ","BB","c", "CCcCC"," d"])
+        XCTAssertEqual(res, ["aab ", "A", " ", "BB", "c", "CCcCC", " d"])
     }
     
     func testParseVariablePerformance() {
@@ -38,16 +38,13 @@ class ParserTests: XCTestCase {
         }
     }
 
-	func testParseObject()
-	{
-		struct User: TokenValueConvertible
-		{
+	func testParseObject() {
+		struct User: TokenValueConvertible {
 			let name: String
 			let email: String
 			let postIds: [Int]
 
-			var tokenValue: Token.Value
-			{
+			var tokenValue: Token.Value {
 				return ["name": name, "email": email, "post_ids": postIds].tokenValue
 			}
 		}
@@ -63,8 +60,7 @@ class ParserTests: XCTestCase {
 		let tokens = lexer.tokenize()
 		let parser = Parser(tokens: tokens, context: Context(dictionary: values))
 		var res: [String]? = nil
-		measure
-		{
+		measure {
 			res = parser.parse()
 		}
 		XCTAssertEqual(res, ["John", "2", "Sarah", "1", "sarah@example.com", "john@example.com", "1"])

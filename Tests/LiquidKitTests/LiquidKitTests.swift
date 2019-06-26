@@ -18,7 +18,7 @@ class LiquidTests: XCTestCase {
     LexerTests().testCreateToken()
     LexerTests().testTokenize()
   }
-  func testParser()  {
+  func testParser() {
     ParserTests().testParseText()
     ParserTests().testParseVariable()
   }
@@ -26,7 +26,7 @@ class LiquidTests: XCTestCase {
 }
 
 extension LiquidTests {
-    static var allTests : [(String, (LiquidTests) -> () throws -> Void)] {
+    static var allTests: [(String, (LiquidTests) -> () throws -> Void)] {
         return [
             ("testLexer", testLexer),
             ("testParser", testParser),

@@ -7,12 +7,10 @@
 
 import Foundation
 
-extension NSRegularExpression
-{
+extension NSRegularExpression {
 	static var rangeRegex = try! NSRegularExpression(pattern: "\\(([^\\.\\n]+)\\.\\.([^\\.\\n]+)\\)", options: [])
 
-	static func tagParameterRegex(for name: String) -> NSRegularExpression
-	{
+	static func tagParameterRegex(for name: String) -> NSRegularExpression {
 		return try! NSRegularExpression(pattern: "\(name)(\\s*?:\\s*?(\\w+))?", options: [])
 	}
 }

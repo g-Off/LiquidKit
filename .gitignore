@@ -39,6 +39,7 @@ Carthage/Build
 Packages/
 Liquid.xcodeproj/
 docs/
+!.swiftpm/xcode/xcshareddata
 
 fastlane/report.xml
 fastlane/screenshots
