@@ -1,4 +1,5 @@
-# LiquidKit
+# LiquidKit 
+[![Build Status](https://app.bitrise.io/app/6afbf32de8b1c32d/status.svg?token=da5CE9nSJWjGt1xWE4OkkA&branch=master)](https://app.bitrise.io/app/6afbf32de8b1c32d)
 
 Liquid template language parser engine in Swift.
 
